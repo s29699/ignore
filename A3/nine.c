@@ -7,6 +7,7 @@ int comp(const void* a, const void* b){
     strcpy(as, (char*)a);
     char bs[15]; 
     strcpy(bs, (char*)b);
+    strcmp(as,bs);
     int al = strlen(as);
     int bl = strlen(bs);
     int i=0;

@@ -1,0 +1,21 @@
+CC = gcc
+SRC = ./src
+OBJ = ./obj
+INC = ./include
+BIN = ./bin
+CFLAGS = -Wall -g -o
+IFLAGS = -I $(INC)
+LDFLAGS =  -c
+
+$(BIN)/cal: $(OBJ)/cal.o $(OBJ)/cal_func.o
+	$(CC) $(CFLAGS) $(BIN)/cal $(OBJ)/cal.o $(OBJ)/cal_func.o
+$(OBJ)/cal.o: $(SRC)/cal.c
+	$(CC) $(LDFLAGS) $(IFLAGS) $(SRC)/cal.c
+	mv *.o $(OBJ)/
+$(OBJ)/cal_func.o: $(SRC)/cal_func.c
+	$(CC) $(LDFLAGS) $(IFLAGS) $(SRC)/cal_func.c
+	mv *.o $(OBJ)
+
+clean:
+	rm  $(OBJ)/*.o
+	rm $(BIN)/cal
